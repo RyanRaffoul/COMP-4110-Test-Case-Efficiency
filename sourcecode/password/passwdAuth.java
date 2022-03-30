@@ -3,7 +3,7 @@ import java.util.*;
 class passwdAuth 
 	{ 
 	 public static void main(String args[]) 
-		 { 
+	 { 
 		 try 
 		 { 
 			 String logFileName = args[0]; 
@@ -16,14 +16,12 @@ class passwdAuth
 			 { 
 				 password = password + args[1]; // Comment for Empty Password Initialization Vulnerability 
 				 System.out.println("Checking command-line password"); 
-				 if (password.equals("3dTAqb.7")) 
-			 { 
-			 access_granted = true; 
-			 System.out.println("Password matches."); 
-			 } 
-			 else 
-				 System.out.println("Command-line password does
-				not match"); 
+				 if (password.equals("3dTAqb.7")){
+				 	access_granted = true; 
+			 	 	System.out.println("Password matches.");  
+				 }else{
+				        System.out.println("Command-line password does not match"); 
+				 } 
 			 }//end if 
 			 
 			 if (access_granted) 
@@ -39,7 +37,7 @@ class passwdAuth
 			 }//end if 
 		 
 		 }//end try 
-			catch (Exception e) 
+		 catch (Exception e) 
 		 { 
 			 System.out.println("an error has occured."); 
 			 e.printStackTrace(); //Comment for system leak vulnerability
