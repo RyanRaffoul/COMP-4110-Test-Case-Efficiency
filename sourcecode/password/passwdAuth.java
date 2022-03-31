@@ -22,7 +22,9 @@ public class passwdAuth {
 				 String password1 = "3dTAqb.7";
 				 if (password.equals(password1)){
 					 access_granted = true;
+					 System.out.println("Password matches.");
 				 }else{
+					 System.out.println("Command-line password does not match");
 					 return ("Command-line password does not match");
 				 } 
 			 }else{
@@ -42,9 +44,9 @@ public class passwdAuth {
 			 }//end if 
 	 
 		}catch (Exception e) { 
+			System.out.println("an error has occured.");
 			e.printStackTrace();
 		}
 		return ("Sucess!");
 	}
-
 }
