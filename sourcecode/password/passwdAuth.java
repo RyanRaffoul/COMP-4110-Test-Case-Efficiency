@@ -4,7 +4,7 @@ import java.io.PrintWriter;
 
 public class passwdAuth {
 
-	public static void main(String[] args) {
+	public static String main(String[] args) {
 		try { 
 			 String logFileName = args[0];
 			 int checkFile = logFileName.lastIndexOf('.');
@@ -21,10 +21,9 @@ public class passwdAuth {
 				 System.out.println("Checking command-line password"); 
 				 String password1 = "3dTAqb.7";
 				 if (password.equals(password1)){
-					 access_granted = true; 
-					 System.out.println("Password matches.");  
+					 access_granted = true;
 				 }else{
-					 System.out.println("Command-line password does not match"); 
+					 return ("Command-line password does not match");
 				 } 
 			 }else{
 				 throw new Exception("Incorrect Arguments Given");
@@ -39,12 +38,13 @@ public class passwdAuth {
 				 out.println(); 
 				 out.flush(); 
 				 out.close(); 
+				 return ("Password matches. Access granted! Updated...");
 			 }//end if 
 	 
 		}catch (Exception e) { 
-			System.out.println("an error has occured."); 
 			e.printStackTrace();
-		} 
+		}
+		return ("Sucess!");
 	}
 
 }
