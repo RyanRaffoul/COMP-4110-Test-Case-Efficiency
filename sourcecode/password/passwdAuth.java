@@ -4,6 +4,8 @@ import java.io.PrintWriter;
 
 public class passwdAuth {
 
+	static int integer = 0;
+	
 	public static String main(String[] args) {
 		try { 
 			 String logFileName = args[0];
@@ -14,7 +16,7 @@ public class passwdAuth {
 			 File f = new File(logFileName); 
 			 boolean access_granted = false; 
 			 String password = ""; 
-			 int integer = 0;
+			 integer = 10;
 		 
 			 if(args.length == 2){ 
 				 password = password + args[1]; // Comment for Empty Password Initialization Vulnerability 
@@ -48,5 +50,9 @@ public class passwdAuth {
 			e.printStackTrace();
 		}
 		return ("Sucess!");
+	}
+	
+	public static int getInteger() {
+		return integer;
 	}
 }
