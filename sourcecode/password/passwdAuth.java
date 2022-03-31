@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 public class passwdAuth {
 
 	static int integer = 0;
+	static String hardCodedP = "3dTAqb.7";
 	
 	public static String main(String[] args) {
 		try { 
@@ -15,13 +16,12 @@ public class passwdAuth {
 			 }
 			 File f = new File(logFileName); 
 			 boolean access_granted = false; 
-			 String password = ""; 
-			 integer = 10;
+			 String password = args[1];
+			 integer = 0;
 		 
 			 if(args.length == 2){ 
-				 password = password + args[1]; // Comment for Empty Password Initialization Vulnerability 
 				 System.out.println("Checking command-line password"); 
-				 String password1 = "3dTAqb.7";
+				 String password1 = hardCodedP;
 				 if (password.equals(password1)){
 					 access_granted = true;
 					 System.out.println("Password matches.");
@@ -48,11 +48,16 @@ public class passwdAuth {
 		}catch (Exception e) { 
 			System.out.println("an error has occured.");
 			e.printStackTrace();
+			return e.getMessage();
 		}
 		return ("Sucess!");
 	}
 	
 	public static int getInteger() {
 		return integer;
+	}
+	
+	public static String getPassword() {
+		return hardCodedP;
 	}
 }
