@@ -127,20 +127,6 @@ class passwdAuthTest {
 	}
 	
 	/**
-	 * Test for checking valid number of arguments
-	 * BLACK BOX - EQUIVALENCE PARTITIONING
-	 */
-	@Test
-	public void testValidArgs() {
-		// give valid arguments
-		passwdAuth pa = new passwdAuth();
-		String[] args = {"result.txt","3dTAqb.7"};
-		String res = pa.main(args);
-		
-		assertEquals("Password matches. Access granted! Updated...", res);
-	}
-	
-	/**
 	 * Test for checking equal passwords
 	 * BLACK BOX - EQUIVALENCE PARTITIONING
 	 */
