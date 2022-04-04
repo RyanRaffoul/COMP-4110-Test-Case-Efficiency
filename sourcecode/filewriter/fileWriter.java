@@ -8,9 +8,9 @@ class fileWriter {
 			 FileWriter fw = new FileWriter(args[0]); 
 			 PrintWriter pw = new PrintWriter(fw); 
 			 BufferedReader br = new BufferedReader(new InputStreamReader( 
-			System.in)); 
+			 System.in));
 			 
-			 for (int lineNum = 1; lineNum <=5; lineNum++){ 
+			 for (int lineNum = 0; lineNum < 5; lineNum++){ 
 				 System.out.print("Enter line # "+lineNum+" : "); 
 				 String line = lines[lineNum]; 
 				 pw.println(line); 
@@ -25,7 +25,11 @@ class fileWriter {
 		 catch(IOException ie){ 
 			ie.printStackTrace( ); 
 			return "file not created";
-		 } 
+		 }
+		 catch(Exception e) {
+			 e.printStackTrace();
+			 return "file not created";
+		 }
 	 } 
 	 
 }
