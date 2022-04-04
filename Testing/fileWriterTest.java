@@ -1,4 +1,7 @@
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.io.IOException;
+
 import org.junit.jupiter.api.Test;
 
 /*
@@ -7,12 +10,13 @@ import org.junit.jupiter.api.Test;
  */
 
 class fileWriterTest {
+	
 	// equivalence partitioning
 	/*
-	 * if file is created(bug)
+	 * if file is created(missed bug)
 	 */
 	@Test
-	public void testResourceStreamVulnerability() {
+	public void testResourceStreamVulnerability() throws IOException {
 		//standard case to see if file is created
 		fileWriter fw = new fileWriter();
 		String[] args = {"file.txt"};
@@ -26,7 +30,7 @@ class fileWriterTest {
 	 * invalid character (bug)
 	 */
 	@Test
-	public void testInvalidFileChar() {
+	public void testInvalidFileChar() throws IOException {
 		//standard case to see if file is created
 		fileWriter fw = new fileWriter();
 		String[] args = {"fi., le.txt"};
@@ -35,11 +39,12 @@ class fileWriterTest {
 		
 		assertEquals("file not created", res);
 	}
+	
 	/*
 	 * invalid file format (bug)
 	 */
 	@Test
-	public void testInvalidFileFormat() {
+	public void testInvalidFileFormat() throws IOException {
 		//standard case to see if file is created
 		fileWriter fw = new fileWriter();
 		String[] args = {"file.jpeg"};
@@ -48,11 +53,12 @@ class fileWriterTest {
 		
 		assertEquals("file not created", res);
 	}
+	
 	/*
 	 * empty string file name (bug)
 	 */
 	@Test
-	public void testInvalidFileEmpty() {
+	public void testInvalidFileEmpty() throws IOException {
 		//see if file is created
 		fileWriter fw = new fileWriter();
 		String[] args = {""};
@@ -61,11 +67,12 @@ class fileWriterTest {
 		
 		assertEquals("file not created", res);
 	}
+	
 	/*
 	 * null file name (bug)
 	 */
 	@Test
-	public void testInvalidFileNull() {
+	public void testInvalidFileNull() throws IOException {
 		//standard case to see if file is created
 		fileWriter fw = new fileWriter();
 		String[] args = {null};
@@ -74,11 +81,12 @@ class fileWriterTest {
 		
 		assertEquals("file not created", res);
 	}
+	
 	/*
 	 *  1 empty line (bug)
 	 */
 	@Test
-	public void testOneLineEempty() {
+	public void testOneLineEempty() throws IOException {
 		//standard case to see if file is created
 		fileWriter fw = new fileWriter();
 		String[] args = {"file.txt"};
@@ -87,11 +95,12 @@ class fileWriterTest {
 		
 		assertEquals("file was created", res);
 	}
+	
 	/*
 	 *  all empty lines (bug)
 	 */
 	@Test
-	public void testAllLinesEmpty() {
+	public void testAllLinesEmpty() throws IOException {
 		//standard case to see if file is created
 		fileWriter fw = new fileWriter();
 		String[] args = {"file.txt"};
@@ -100,11 +109,12 @@ class fileWriterTest {
 		
 		assertEquals("file was created", res);
 	}
+	
 	/*
 	 *  1 null line (bug)
 	 */
 	@Test
-	public void testOneLineNull() {
+	public void testOneLineNull() throws IOException {
 		//standard case to see if file is created
 		fileWriter fw = new fileWriter();
 		String[] args = {"file.txt"};
@@ -113,11 +123,12 @@ class fileWriterTest {
 		
 		assertEquals("file not created", res);
 	}
+	
 	/*
 	 *  all null lines (bug)
 	 */
 	@Test
-	public void testAllLineslNull() {
+	public void testAllLineslNull() throws IOException {
 		//standard case to see if file is created
 		fileWriter fw = new fileWriter();
 		String[] args = {"file.txt"};
@@ -126,12 +137,13 @@ class fileWriterTest {
 		
 		assertEquals("file not created", res);
 	}
+	
 	// boundary testing
 	/*
 	 *  file - 2 args
 	 */
 	@Test
-	public void testFile2Args() {
+	public void testFile2Args() throws IOException {
 		//standard case to see if file is created
 		fileWriter fw = new fileWriter();
 		String[] args = {"file1.txt","file2.txt"};
@@ -140,11 +152,12 @@ class fileWriterTest {
 		
 		assertEquals("file was created", res);
 	}
+	
 	/*
 	 * file - no args
 	 */
 	@Test
-	public void testFileNoArgs() {
+	public void testFileNoArgs() throws IOException {
 		//standard case to see if file is created
 		fileWriter fw = new fileWriter();
 		String[] args = {};
@@ -152,58 +165,6 @@ class fileWriterTest {
 		String res = fw.main(args, lines);
 		
 		assertEquals("file not created", res);
-	}
-	/*
-	 *  lines - no args
-	 */
-	@Test
-	public void testLinesNoArgs() {
-		//standard case to see if file is created
-		fileWriter fw = new fileWriter();
-		String[] args = {"file1.txt"};
-		String[] lines = {};
-		String res = fw.main(args, lines);
-		
-		assertEquals("file not created", res);
-	}
-	/*
-	 *  lines - 1 args
-	 */
-	@Test
-	public void testLines1Args() {
-		//standard case to see if file is created
-		fileWriter fw = new fileWriter();
-		String[] args = {"file1.txt"};
-		String[] lines = {"1"};
-		String res = fw.main(args, lines);
-		
-		assertEquals("file not created", res);
-	}
-	/*
-	 * lines - 4 args
-	 */
-	@Test
-	public void testLines4Args() {
-		//standard case to see if file is created
-		fileWriter fw = new fileWriter();
-		String[] args = {"file1.txt"};
-		String[] lines = {"1","2","3","4"};
-		String res = fw.main(args, lines);
-		
-		assertEquals("file not created", res);
-	}
-	/*
-	 *  lines - 6 args
-	 */
-	@Test
-	public void testLines6Args() {
-		//standard case to see if file is created
-		fileWriter fw = new fileWriter();
-		String[] args = {"file1.txt"};
-		String[] lines = {"1","2","3","4","5","6"};
-		String res = fw.main(args, lines);
-		
-		assertEquals("file was created", res);
 	}
 
 }
