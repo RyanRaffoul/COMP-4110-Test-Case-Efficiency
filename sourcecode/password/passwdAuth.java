@@ -50,7 +50,7 @@ public class passwdAuth {
 			e.printStackTrace();
 			return e.getMessage();
 		}
-		return ("Sucess!");
+		return ("Success!");
 	}
 	
 	public static int getInteger() {
